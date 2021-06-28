@@ -2,9 +2,9 @@
 -- CREATE DATABASE IF NOT EXISTS test_db;   
 USE test_db; 
 
-DROP TABLE IF EXISTS user; 
+DROP TABLE IF EXISTS userTest; 
 
-CREATE TABLE IF NOT EXISTS user 
+CREATE TABLE IF NOT EXISTS userTest
   ( 
      id         INT PRIMARY KEY auto_increment, 
      username   VARCHAR(25) UNIQUE NOT NULL, 

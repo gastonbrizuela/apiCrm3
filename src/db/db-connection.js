@@ -12,7 +12,6 @@ class DBConnection {
         });
 
         this.checkConnection();
-        console.log(process.env.DB_HOST)
     }
 
     checkConnection() {
