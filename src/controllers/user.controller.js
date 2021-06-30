@@ -89,7 +89,7 @@ class UserController {
         res.send({ message, info });
     };
 
-    deleteUser = async (req, res, next) => {
+    deleteCampaign = async (req, res, next) => {
         const result = await UserModel.delete(req.params.id);
         if (!result) {
             throw new HttpException(404, 'User not found');

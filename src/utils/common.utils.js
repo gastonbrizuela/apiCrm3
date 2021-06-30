@@ -14,7 +14,6 @@ exports.multipleColumnSet = (object) => {
     if (typeof object !== 'object') {
         throw new Error('Invalid input');
     }
-
     const keys = Object.keys(object);
     const values = Object.values(object);
 
@@ -26,8 +25,10 @@ exports.multipleColumnSet = (object) => {
     }
 }
 
-exports.getQueryInsert = ({tableName, values,columns})=>{
-    let sql = `INSERT INTO ${tableName} (` + columns.join(" , ") +`) VALUES (;`
+exports.getQueryInsert = ({tableName, object})=>{
+    const columns = Object.keys(object);
+    const values = Object.values(object);
+    let sql = `INSERT INTO ${tableName} (` + columns.join(" , ") +`) VALUES (`
 
     for (let i = 0; i < values.length; i++) {
         sql += "?";
@@ -36,6 +37,7 @@ exports.getQueryInsert = ({tableName, values,columns})=>{
         }
     }
     sql+= ")";
-    return sql
+    return {sql,
+        values}
 }
 
