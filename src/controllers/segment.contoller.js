@@ -24,21 +24,22 @@ class SegmentController {
         
     };
     getSegmentById = async (req, res, next) => {
-        const campaign = await campaignModel.findOne({ internalId: req.params.id });
-        if (!campaign) {
-            throw new HttpException(404, 'User not found');
+        const segment = await SegmentModel.findOne({ internalId: req.params.id });
+        if (!segment) {
+            throw new HttpException(404, 'Segment not found');
         }
 
-        res.send(campaign);
+        res.send(segment); 
     };
 
-    deleteUser = async (req, res, next) => {
-        const result = await CampaignModel.delete(req.params.id);
+    deleteSegment = async (req, res, next) => {
+        const result = await SegmentModel.delete(req.params.id);
         if (!result) {
-            throw new HttpException(404, 'User not found');
+            throw new HttpException(404, 'Segment not found');
         }
-        res.send('User has been deleted');
+        res.send('Segment has been deleted');
     };
+
     checkValidation = (req) => {
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
@@ -47,4 +48,4 @@ class SegmentController {
     }
 }
 
-module.exports = new SegmentController
+module.exports = new SegmentController;

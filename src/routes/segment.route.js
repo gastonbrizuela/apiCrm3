@@ -9,6 +9,6 @@ const awaitHandlerFactory = require('../middleware/awaitHandlerFactory.middlewar
 router.get('/',awaitHandlerFactory(segmentCotroller.getAllSegment))
 router.post('/',awaitHandlerFactory(segmentCotroller.createSegment))
 router.get('/:id',awaitHandlerFactory(segmentCotroller.getSegmentById))
-//router.delete('/:id',awaitHandlerFactory(segmentCotroller.deleteSegment))
+router.delete('/:id',awaitHandlerFactory(segmentCotroller.deleteSegment))
 
  module.exports = router;

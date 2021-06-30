@@ -22,6 +22,25 @@ class SegmentModel{
         const affectedRows = result ? result.affectedRows : 0;
         return affectedRows
     }
+
+    findOne = async (params)=>{
+        const {columnSet, values} = multipleColumnSet(params)
+
+        const sql = `Select * from ${this.tableName}
+                    Where ${columnSet}`
+        
+        const result = await query (sql, [...values]);
+        
+        return result[0];
+    }
+    delete = async (id) => {
+        const sql = `DELETE FROM ${this.tableName}
+        WHERE internalId = ?`;
+        const result = await query(sql, [id]);
+        const affectedRows = result ? result.affectedRows : 0;
+
+        return affectedRows;
+    }
 }
 
 module.exports = new SegmentModel

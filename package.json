@@ -16,7 +16,9 @@
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
     "jsonwebtoken": "^8.5.1",
-    "mysql2": "^2.1.0"
+    "keygenerator": "^1.0.4",
+    "mysql2": "^2.1.0",
+    "puppeteer": "^10.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

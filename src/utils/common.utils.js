@@ -29,7 +29,6 @@ exports.getQueryInsert = ({tableName, object})=>{
     const columns = Object.keys(object);
     const values = Object.values(object);
     let sql = `INSERT INTO ${tableName} (` + columns.join(" , ") +`) VALUES (`
-
     for (let i = 0; i < values.length; i++) {
         sql += "?";
         if (i !== values.length - 1) {

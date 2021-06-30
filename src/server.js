@@ -5,7 +5,9 @@ const HttpException = require('./utils/HttpException.utils');
 const errorMiddleware = require('./middleware/error.middleware');
 const userRouter = require('./routes/user.route');
 const campaignRouter = require('./routes/campaign.route');
-const segmentRouter = require('./routes/segment.route')
+const segmentRouter = require('./routes/segment.route');
+const customerRouter =require('./routes/customer.route');
+const templateRouter = require(`./routes/template.route`)
 
 // Init express
 const app = express();
@@ -23,7 +25,9 @@ const port = Number(process.env.PORT || 3331);
 
 app.use(`/api/v1/users`, userRouter);
 app.use(`/api/v1/campaign`, campaignRouter);
-app.use(`/api/v1/segment`,segmentRouter)
+app.use(`/api/v1/segment`,segmentRouter);
+app.use(`/api/v1/customer`,customerRouter);
+app.use(`/api/v1/template`,templateRouter )
 // 404 error
 app.all('*', (req, res, next) => {
     const err = new HttpException(404, 'Endpoint Not Found');
