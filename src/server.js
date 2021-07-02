@@ -27,7 +27,8 @@ app.use(`/api/v1/users`, userRouter);
 app.use(`/api/v1/campaign`, campaignRouter);
 app.use(`/api/v1/segment`,segmentRouter);
 app.use(`/api/v1/customer`,customerRouter);
-app.use(`/api/v1/template`,templateRouter )
+app.use(`/api/v1/template`,templateRouter );
+app.use('/api/v1/image_template',express.static(`${process.cwd()}/assets/imageTemplate`))
 // 404 error
 app.all('*', (req, res, next) => {
     const err = new HttpException(404, 'Endpoint Not Found');

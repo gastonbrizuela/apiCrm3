@@ -33,10 +33,10 @@ class CampaignController {
         res.send(campaign);
     };
 
-    deleteUser = async (req, res, next) => {
+    deleteCampaign = async (req, res, next) => {
         const result = await CampaignModel.delete(req.params.id);
         if (!result) {
-            throw new HttpException(404, 'User not found');
+            throw new HttpException(404, 'Campaign not found');
         }
         res.send('User has been deleted');
     };

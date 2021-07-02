@@ -9,6 +9,6 @@ const awaitHandlerFactory = require('../middleware/awaitHandlerFactory.middlewar
 router.get('/',awaitHandlerFactory(campaignCotroller.getAllCampaign))
 router.post('/',awaitHandlerFactory(campaignCotroller.createCampaign))
 router.get('/:id',awaitHandlerFactory(campaignCotroller.getCampaignById))
-router.delete('/:id',awaitHandlerFactory(campaignCotroller.deleteUser))
+router.delete('/:id',awaitHandlerFactory(campaignCotroller.deleteCampaign))
 
  module.exports = router;
